@@ -14,7 +14,9 @@ if [ ! -z "$SLAVE_EXECUTORS" ]; then
   PARAMS="$PARAMS -executors $SLAVE_EXECUTORS"
 fi
 if [ ! -z "$SLAVE_LABELS" ]; then
-  PARAMS="$PARAMS -labels $SLAVE_LABELS"
+  for LABEL in $SLAVE_LABELS; do
+    PARAMS="$PARAMS -labels $LABEL"
+  done
 fi
 if [ ! -z "$SLAVE_NAME" ]; then
   PARAMS="$PARAMS -name $SLAVE_NAME"
